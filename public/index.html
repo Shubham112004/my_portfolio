@@ -19,15 +19,21 @@
                     "Email": $("#Email").val(),
                     "Message": $("#Message").val()
                 };
+
                 $.ajax({
                     method: "POST",
-                    url: "http://127.0.0.1:3000/clientresponse",
-                    data: customerData
+                    url: "https://portfolio-backend-murex-chi.vercel.app/clientresponse", // Update this URL
+                    data: JSON.stringify(customerData), // Send JSON data
+                    contentType: "application/json", // Specify content type as JSON
+                    dataType: "json"
                 })
-                    .then(function () {
+                    .done(function () {
                         alert("Thank you for your message! We will get back to you soon.");
                         $("#myForm")[0].reset();
                     })
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("An error occurred: " + textStatus + " - " + errorThrown);
+                    });
             });
 
             $("#allProjects").click(function () {
@@ -35,12 +41,16 @@
                     method: "GET",
                     url: "allprojects.html"
                 })
-                    .then(function (response) {
+                    .done(function (response) {
                         $("#bodyContainer").html(response);
                     })
-            })
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("An error occurred: " + textStatus + " - " + errorThrown);
+                    });
+            });
         });
     </script>
+
 </head>
 
 <body class="container-fluid">

@@ -22,7 +22,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "https://portfolio-backend-murex-chi.vercel.app/clientresponse", // Update this URL
+                    url: "https://portfolio-backend-murex-chi.vercel.app/clientresponse", // Ensure this URL is correct
                     data: JSON.stringify(customerData), // Send JSON data
                     contentType: "application/json", // Specify content type as JSON
                     dataType: "json"
@@ -35,21 +35,9 @@
                         alert("An error occurred: " + textStatus + " - " + errorThrown);
                     });
             });
-
-            $("#allProjects").click(function () {
-                $.ajax({
-                    method: "GET",
-                    url: "allprojects.html"
-                })
-                    .done(function (response) {
-                        $("#bodyContainer").html(response);
-                    })
-                    .fail(function (jqXHR, textStatus, errorThrown) {
-                        alert("An error occurred: " + textStatus + " - " + errorThrown);
-                    });
-            });
         });
     </script>
+
 
 </head>
 

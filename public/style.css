@@ -192,8 +192,8 @@
     }
 
     .first-inner-aboutme-content p {
-        height: 100px;
-        overflow: auto;
+        height: 280px;
+        /* overflow: auto; */
     }
 
     .second-inner-aboutme-content img {
@@ -306,4 +306,30 @@
 #resumePdf {
     color: white;
     text-decoration: none;
+}
+
+.skillimg {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.skillimg.slide-in-left {
+    transform: translateX(-100%);
+}
+
+.skillimg.slide-in-right {
+    transform: translateX(100%);
+}
+
+.skillimg.slide-in-top {
+    transform: translateY(-100%);
+}
+
+.skillimg.slide-in-bottom {
+    transform: translateY(100%);
+}
+
+.skillimg.in-view {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
 }

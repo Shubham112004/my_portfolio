@@ -36,6 +36,30 @@
                     });
             });
         });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('.skillimg');
+            const animationClasses = ['slide-in-left', 'slide-in-right', 'slide-in-top', 'slide-in-bottom'];
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            images.forEach(image => {
+                const animationClass = animationClasses[Math.floor(Math.random() * animationClasses.length)];
+                image.classList.add(animationClass);
+                observer.observe(image);
+            });
+        });
     </script>
 
 
@@ -116,7 +140,7 @@
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 80px;">
             <h2 id="experiance" style="color: #4D869C;">Experience <span class="bi bi-box-arrow-right"></span></h2>
             <p class="text-center fst-italic" style="color: #7AB2B2;">Skilled in developing responsive web applications,
                 designing intuitive user
@@ -371,12 +395,13 @@
                         id="portfolioImage">
                 </div>
                 <div class="col-md-6 d-flex flex-column justify-content-center">
-                    <p>For Datiled Work - <a href="https://github.com/Shubham112004" target="_blank"
-                            style="text-decoration: none;"><span class="bi bi-github" style="font-size: 18px;"></span>
+                    <p style="color: #4D869C;">For Datiled Work - <a href="https://github.com/Shubham112004"
+                            target="_blank" style="text-decoration: none;"><span class="bi bi-github"
+                                style="font-size: 18px;"></span>
                             Shubham112004</a></p>
                     <div id="tabs">
-                        <ul class="d-flex flex-wrap gap-5">
-                            <div>
+                        <!-- <ul class="d-flex flex-wrap gap-5"> -->
+                        <!-- <div>
                                 <li><a href="https://github.com/Shubham112004/Medic-Website" target="_blank">Medic
                                         Website
                                         UI</a></li>
@@ -391,13 +416,15 @@
                                 <li><a href="https://github.com/Shubham112004/Parallax-Website" target="_blank">Parallax
                                         UI
                                         Demo</a></li>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary" id="allProjects">View All
-                                    Projects</button>
-                            </div>
-                        </ul>
-                        <div style="height: 180px; overflow: auto;">
+                            </div> -->
+                        <!-- <div>
+                            <button class="btn btn-primary" id="allProjects"><a class="text-decoration-none text-white"
+                                    href="https://github.com/Shubham112004?tab=repositories" target="_blank">View
+                                    All
+                                    Projects</a></button>
+                        </div> -->
+                        <!-- </ul> -->
+                        <!-- <div style="height: 180px; overflow: auto;">
                             <div id="tabs-1">
                                 <h2>Medic Website UI</h2>
                                 <p>Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut
@@ -437,7 +464,87 @@
                                     <li>Responsive Design</li>
                                 </ul>
                             </div>
+                        </div> -->
+
+
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Project Snapshot <span
+                                class="bi bi-caret-right-fill"></span></button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                            aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 id="offcanvasRightLabel">Project Quick View</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div>
+                                        <div class="card mb-2" style="width: 18rem;">
+                                            <video autoplay loop muted plays-inline>
+                                                <source src="video1.mp4">
+                                            </video>
+                                            <div class="card-body">
+                                                <p class="card-text">FakeStore API
+                                                <dl>
+                                                    <dt>📈 Learnings :-</dt>
+                                                    <dd>📌 Ajax calls</dd>
+                                                    <dd>📌 JS Operators</dd>
+                                                    <dd>📌 Basic Event Handling</dd>
+                                                    <dd>📌 DOM Manipulation</p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2" style="width: 18rem;">
+                                            <video autoplay loop muted plays-inline>
+                                                <source src="video2.mp4">
+                                            </video>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    Build a static responsive web application for a hospital
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2" style="width: 18rem;">
+                                            <video autoplay loop muted plays-inline>
+                                                <source src="video3.mp4">
+                                            </video>
+                                            <div class="card-body">
+                                                <p class="card-text">While brushing up my css skills - builded a
+                                                    forntpage clone of amazon.com</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2" style="width: 18rem;">
+                                            <video autoplay loop muted plays-inline>
+                                                <source src="video4.mp4">
+                                            </video>
+                                            <div class="card-body">
+                                                <p class="card-text">Exploring the CSS - Here I explored the Parallax
+                                                    Effect</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <p style="text-align: justify; margin-top: 20px; color:#4D869C">My journey began with creating
+                            interactive,
+                            responsive websites
+                            using HTML, CSS, and
+                            JavaScript, where I honed my skills in designing visually appealing and user-friendly
+                            interfaces. I have developed landing pages, internal portals, and dynamic UI components,
+                            ensuring each project adheres to the principles of simplicity and efficiency. During my
+                            internships, I contributed to real-world applications, collaborating with teams to deliver
+                            seamless user experiences. Currently learning the React framework to build more efficient
+                            and scalable
+                            web applications. Additionally, I am expanding my expertise in backend development with
+                            frameworks like Node.js and MongoDB.</p>
+
                     </div>
                 </div>
             </div>

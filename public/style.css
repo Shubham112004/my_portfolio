@@ -302,3 +302,8 @@
         padding: 50px;
     }
 }
+
+#resumePdf {
+    color: white;
+    text-decoration: none;
+}
